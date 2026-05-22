@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AutoImplant</class>
+ <widget class="qMRMLWidget" name="AutoImplant">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>849</width>
+    <height>832</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="ctkCollapsibleButton" name="implantCollapsibleButton">
+     <property name="text">
+      <string>Implant Creation</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="ctkCollapsibleButton" name="implantInuptCollapsibleButton">
+        <property name="text">
+         <string>Inputs</string>
+        </property>
+        <layout class="QFormLayout" name="formLayout_5">
+         <item row="0" column="0">
+          <widget class="QLabel" name="implantSegmentationLabel">
+           <property name="text">
+            <string>Input segmentation:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="qMRMLNodeComboBox" name="ImplantSegmentationComboBox">
+           <property name="nodeTypes">
+            <stringlist notr="true">
+             <string>vtkMRMLSegmentationNode</string>
+            </stringlist>
+           </property>
+           <property name="showChildNodeTypes">
+            <bool>false</bool>
+           </property>
+           <property name="hideChildNodeTypes">
+            <stringlist/>
+           </property>
+           <property name="interactionNodeSingletonTag">
+            <string notr="true"/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="implantSegmentLabel">
+           <property name="text">
+            <string>Input segment</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="qMRMLSegmentSelectorWidget" name="implantSegmentSelector"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="symmetryPlaneButton">
+        <property name="text">
+         <string>Create estimated symmetry plane</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="implantInteractCheckBox">
+        <property name="text">
+         <string>Show interact handles</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="mirrorButton">
+        <property name="text">
+         <string>Mirror input segment through plane</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="ctkCollapsibleButton" name="StructuresCollapsibleButton">
+     <property name="text">
+      <string>Structure Generation</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="ctkCollapsibleButton" name="structuresInputCollapsibleButton">
+        <property name="text">
+         <string>Inputs</string>
+        </property>
+        <layout class="QFormLayout" name="formLayout_4">
+         <item row="0" column="0">
+          <widget class="QLabel" name="structuresSegmentationLabel">
+           <property name="text">
+            <string>Input segmentation: </string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="structuresSegmentLabel">
+           <property name="text">
+            <string>Input segment</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="qMRMLNodeComboBox" name="structuresSegmentationComboBox">
+           <property name="nodeTypes">
+            <stringlist notr="true">
+             <string>vtkMRMLSegmentationNode</string>
+            </stringlist>
+           </property>
+           <property name="showChildNodeTypes">
+            <bool>false</bool>
+           </property>
+           <property name="hideChildNodeTypes">
+            <stringlist/>
+           </property>
+           <property name="interactionNodeSingletonTag">
+            <string notr="true"/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="qMRMLSegmentSelectorWidget" name="structuresSegmentSelector"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <layout class="QFormLayout" name="structuresGridLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="structureTypeLabel">
+          <property name="text">
+           <string>Structure type: </string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="structureTypeComboBox"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="structuresPeriodicityLabel">
+          <property name="text">
+           <string>Periodicty:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QSlider" name="structuresPeriodicitySlider">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="structuresWallLabel">
+          <property name="text">
+           <string>Wall thickness:</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QSlider" name="structuresWallSlider">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="structuresSizeLayout">
+        <item>
+         <widget class="QLabel" name="structuresSizeLabel">
+          <property name="text">
+           <string>Size (Length x Width x Height):</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="structuresLengthLineEdit"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="xLabel">
+          <property name="text">
+           <string>x</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="structuresWidthLineEdit"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="xLabel2">
+          <property name="text">
+           <string>x</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="structuresHeightLineEdit"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="mmLabel">
+          <property name="text">
+           <string>mm</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="structuresIntersectCheckBox">
+        <property name="text">
+         <string>Intersect with input segment</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="generateGyroid">
+        <property name="text">
+         <string>Generate gyroid</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTextEdit" name="logTextBox">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="placeholderText">
+      <string>Log will appear here...</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ctkCollapsibleButton</class>
+   <extends>QWidget</extends>
+   <header>ctkCollapsibleButton.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>qMRMLNodeComboBox</class>
+   <extends>QWidget</extends>
+   <header>qMRMLNodeComboBox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>qMRMLWidget</class>
+   <extends>QWidget</extends>
+   <header>qMRMLWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>qMRMLSegmentSelectorWidget</class>
+   <extends>qMRMLWidget</extends>
+   <header>qMRMLSegmentSelectorWidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

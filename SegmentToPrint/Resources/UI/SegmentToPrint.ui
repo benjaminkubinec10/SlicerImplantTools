@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VoxelPrintAuto</class>
+ <widget class="qMRMLWidget" name="VoxelPrintAuto">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>699</width>
+    <height>778</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="ctkCollapsibleButton" name="inputCollapsibleButton">
+     <property name="text">
+      <string>Input</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="inputLabel">
+        <property name="text">
+         <string>Input Segmentation:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="qMRMLNodeComboBox" name="inputComboBox">
+        <property name="nodeTypes">
+         <stringlist notr="true">
+          <string>vtkMRMLSegmentationNode</string>
+         </stringlist>
+        </property>
+        <property name="hideChildNodeTypes">
+         <stringlist notr="true"/>
+        </property>
+        <property name="noneEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="addEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="removeEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="interactionNodeSingletonTag">
+         <string notr="true"/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="inputSegmentLabel">
+        <property name="text">
+         <string>Input Segment:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="qMRMLSegmentSelectorWidget" name="inputSegmentSelectorWidget"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="ctkCollapsibleButton" name="outputCollapsibleButton">
+     <property name="text">
+      <string>Output</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="outputPathLabel">
+        <property name="text">
+         <string>Save file as:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="outputBrowseButton">
+        <property name="text">
+         <string>Browse...</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="outputPathLineEdit"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="ctkCollapsibleButton" name="settingsCollapsibleButton">
+     <property name="text">
+      <string>Settings</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="ctkCollapsibleButton" name="basicSettingsCollapsibleButton">
+        <property name="text">
+         <string>Printer / Slicer Selection</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="2" column="1" colspan="3">
+          <widget class="QComboBox" name="processProfileComboBox"/>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="printerBrandComboBox"/>
+         </item>
+         <item row="1" column="3">
+          <widget class="QComboBox" name="nozzleComboBox"/>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="slicerLabel">
+           <property name="text">
+            <string>Slicer:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="printerLabel">
+           <property name="text">
+            <string>Printer:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="processProfileLabel">
+           <property name="text">
+            <string>Process profile:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QPushButton" name="slicerBrowseButton">
+           <property name="text">
+            <string>Browse...</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="QComboBox" name="slicerComboBox"/>
+         </item>
+         <item row="1" column="2">
+          <widget class="QComboBox" name="printerModelComboBox"/>
+         </item>
+         <item row="3" column="0" colspan="4">
+          <widget class="ctkCollapsibleButton" name="FilamentCollapsibleButton">
+           <property name="text">
+            <string>Filament settings</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_5">
+            <item row="4" column="2">
+             <widget class="QLabel" name="initialNozzleTempLabel">
+              <property name="text">
+               <string>Initial layer nozzle temp.:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="bedTempLabel">
+              <property name="text">
+               <string>Bed temp.:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="nozzleTempLabel">
+              <property name="text">
+               <string>Nozzle temp.:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="filamentTypeLabel">
+              <property name="text">
+               <string>Filament type:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1" colspan="3">
+             <widget class="QComboBox" name="filamentProfileComboBox"/>
+            </item>
+            <item row="6" column="3">
+             <widget class="QLineEdit" name="initialBedTempLineEdit"/>
+            </item>
+            <item row="7" column="1">
+             <widget class="QLineEdit" name="fanSpeedLineEdit"/>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="filamentProfileLabel">
+              <property name="text">
+               <string>Filament profile:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="3">
+             <widget class="QLineEdit" name="flowRatioLineEdit"/>
+            </item>
+            <item row="4" column="3">
+             <widget class="QLineEdit" name="initialNozzleTempLineEdit"/>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="fanSpeedLabel">
+              <property name="text">
+               <string>Fan speed:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="2">
+             <widget class="QLabel" name="initialBedTempLabel">
+              <property name="text">
+               <string>Initial layer bed temp.:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="2">
+             <widget class="QLabel" name="flowRatioLabel">
+              <property name="text">
+               <string>Flow / Extursion mutliplier:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLineEdit" name="nozzleTempLineEdit"/>
+            </item>
+            <item row="6" column="1">
+             <widget class="QLineEdit" name="bedTempLineEdit"/>
+            </item>
+            <item row="2" column="1">
+             <widget class="QComboBox" name="filamentTypeComboBox"/>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="ctkCollapsibleButton" name="printSettingsCollapsibleButton">
+        <property name="text">
+         <string>Print Settings</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="1" column="0">
+          <widget class="ctkCollapsibleButton" name="supportSettingsCollapsibleButton">
+           <property name="text">
+            <string>Supports</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="0" column="2">
+             <widget class="QLabel" name="buildPlateOnlyLabel">
+              <property name="text">
+               <string>On build plate only:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QCheckBox" name="supportCheckBox">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="4">
+             <widget class="QCheckBox" name="buildPlateOnlyCheckBox">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="4">
+             <widget class="QComboBox" name="supportStyleComboBox"/>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="supportTypeComboBox"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="supportTypeLabel">
+              <property name="text">
+               <string>Support type:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="supportLabel">
+              <property name="text">
+               <string>Supports:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QLabel" name="supportStyleLabel">
+              <property name="text">
+               <string>Support style:</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QFormLayout" name="actionLayout">
+     <item row="1" column="0" colspan="2">
+      <widget class="QTextEdit" name="logTextBox">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>250</height>
+        </size>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="placeholderText">
+        <string>Log will appear here:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" colspan="2">
+      <widget class="QPushButton" name="generateGcodeButton">
+       <property name="text">
+        <string>Generate G-Code </string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ctkCollapsibleButton</class>
+   <extends>QWidget</extends>
+   <header>ctkCollapsibleButton.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>qMRMLNodeComboBox</class>
+   <extends>QWidget</extends>
+   <header>qMRMLNodeComboBox.h</header>
+  </customwidget>
+  <customwidget>
+   <class>qMRMLWidget</class>
+   <extends>QWidget</extends>
+   <header>qMRMLWidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>qMRMLSegmentSelectorWidget</class>
+   <extends>qMRMLWidget</extends>
+   <header>qMRMLSegmentSelectorWidget.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
